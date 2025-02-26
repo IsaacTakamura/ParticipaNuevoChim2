@@ -29,9 +29,11 @@ if (!function_exists('send_email')) {
             $mail->Body = $message;
             $mail->isHTML(true); // Establecer el formato del correo a HTML
 
-            // Adjuntar la imagen si existe
-            if ($attachment) {
-                $mail->addAttachment($attachment);
+            // Adjuntar las imágenes si existen
+            if (!empty($attachments)) {
+                foreach ($attachments as $attachment) {
+                    $mail->addAttachment($attachment);
+                }
             }
 
             // Enviar el correo

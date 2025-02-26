@@ -234,4 +234,4 @@
 </body>
 
 </html>
-<script src="ubicacion.js"></script>
+<script src="../../js/ubicacion.js"></script>

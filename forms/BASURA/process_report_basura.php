@@ -3,6 +3,7 @@ require_once '../../data/db_connection.php';
 require_once 'send_email.php';
 require_once '../../vendor/autoload.php';
 require_once '../../upload_image.php';
+require_once '../../email_template.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Nombres = $_POST['Nombres'] ?? '';
@@ -44,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     $subject = "Confirmación de reporte de basura";
-    $message = "Hola $Nombres,\n\nGracias por enviar tu reporte. Hemos recibido la siguiente información:\n\nDescripción: $descripcion\nDirección: $Direccion\n\nSaludos,\nEquipo de ParticipaNuevoChimbotano";
-    if (!send_email($email, $subject, $message)) {
+    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_url);
+    if (!send_email($email, $subject, $message, [$foto_url])) {
         echo "Error al enviar el correo de confirmación.";
     }
 

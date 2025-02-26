@@ -6,7 +6,7 @@ require '../../vendor/autoload.php'; // Asegúrate de que la ruta sea correcta
 
 if (!function_exists('send_email')) {
     // Esta función envía un correo electrónico de confirmación después de recibir un reporte
-    function send_email($to, $subject, $message)
+    function send_email($to, $subject, $message, $attachments = [])
     {
         $mail = new PHPMailer(true);
 
@@ -24,10 +24,17 @@ if (!function_exists('send_email')) {
             $mail->CharSet = 'UTF-8'; // Establecer la codificación de caracteres a UTF-8
             $mail->Encoding = 'base64'; // Establecer la codificación del contenido a base64
             $mail->setFrom('basura@muninuevochimbote.gob.pe', 'Reporte de Basura');
-            $mail->addAddress("basura@muninuevochimbote.gob.pe"); // Correo destinatario
+            $mail->addAddress($to); // Correo destinatario
             $mail->Subject = $subject;
             $mail->Body = $message;
             $mail->isHTML(true); // Establecer el formato del correo a HTML
+
+            // Adjuntar las imágenes si existen
+            if (!empty($attachments)) {
+                foreach ($attachments as $attachment) {
+                    $mail->addAttachment($attachment);
+                }
+            }
 
             // Enviar el correo
             $mail->send();
