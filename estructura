@@ -9,7 +9,8 @@ Directory structure:
     ├── index.php //Página principal
     ├── report.php //Página de reportes
     ├── upload_image.php //Script para subir imágenes
-    ├── ImgSubidas/ //Directorio de imágenes subidas
+    ├── ImgSubidas/
+    |      └──
     ├── confirmacion/ 
     │   └── confirmacion.php //Página de confirmación
     ├── css/
