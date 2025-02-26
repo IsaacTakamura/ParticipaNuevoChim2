@@ -1,0 +1,231 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-02-2025 a las 16:49:28
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `yoopinoneochimb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `idCategorias` int(11) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`idCategorias`, `nombre`, `descripcion`) VALUES
+(1, 'Alumbrado Público', 'Reportes relacionados con problemas de iluminación pública.'),
+(2, 'Espacio Público', 'Reportes sobre el uso y mantenimiento del espacio público.'),
+(3, 'Basuras', 'Reportes sobre problemas de recolección de basura.'),
+(4, 'Hueco', 'Reportes sobre baches o huecos en las vías.'),
+(5, 'Conductores Transmilenio', 'Reportes relacionados con el comportamiento de conductores.');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalles_reporte`
+--
+
+CREATE TABLE `detalles_reporte` (
+  `idDetallesReporte` int(11) NOT NULL,
+  `reporte_id` int(11) NOT NULL,
+  `atributo` varchar(255) NOT NULL,
+  `valor` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalles_reporte`
+--
+
+INSERT INTO `detalles_reporte` (`idDetallesReporte`, `reporte_id`, `atributo`, `valor`) VALUES
+(1, 1, 'Vía de transporte público', 'Sí'),
+(2, 1, 'Cantidad de tráfico', 'Alto'),
+(3, 1, 'Tiempo de aparición', '2 semanas'),
+(4, 2, 'Vía de transporte público', 'Sí'),
+(5, 2, 'Cantidad de tráfico', '0'),
+(6, 2, 'Tiempo de aparición', '1 a 2 años'),
+(7, 3, 'Vía de transporte público', 'Sí'),
+(8, 3, 'Cantidad de tráfico', '0'),
+(9, 3, 'Tiempo de aparición', 'más de 2 años'),
+(10, 4, 'Vía de transporte público', ''),
+(11, 4, 'Cantidad de tráfico', ''),
+(12, 4, 'Tiempo de aparición', ''),
+(13, 5, 'Causa', 'Ausencia de alumbrado'),
+(14, 5, 'Espacio afectado', '0'),
+(15, 5, 'Tiempo de afectación', '2 a 4 semanas');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reportes`
+--
+
+CREATE TABLE `reportes` (
+  `idReporte` int(11) NOT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
+  `categoria_id` int(11) DEFAULT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `fecha_reporte` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Direccion` varchar(255) DEFAULT NULL,
+  `estado` varchar(20) DEFAULT 'Pendiente',
+  `foto_url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reportes`
+--
+
+INSERT INTO `reportes` (`idReporte`, `usuario_id`, `categoria_id`, `descripcion`, `fecha_reporte`, `Direccion`, `estado`, `foto_url`) VALUES
+(1, 1, 4, 'Hueco grande en la calle principal.', '2025-01-19 03:32:05', 'Calle 456, Ciudad', 'Pendiente', NULL),
+(2, 2, 4, 'un hueco que tiene mucho tiempo', '2025-01-22 05:04:46', 'bruces G', 'Pendiente', 'ImgSubidas/Escudo_de_Nuevo_Chimbote.png'),
+(3, 3, 4, 'Hueco o Bache que tiene bastante tiempo', '2025-01-22 05:44:06', 'Ovalo de la Familia', 'Pendiente', 'ImgSubidas/logo_white.png'),
+(4, 4, 3, 'En el parque se llevo el evento de emprendedores y quedo basura', '2025-01-24 16:57:02', 'Parque del amor y la amistad', 'Pendiente', 'ImgSubidas/basura2.png'),
+(5, 5, 1, 'En mi barrio no light ', '2025-01-24 17:03:23', 'San Luis', 'Pendiente', 'ImgSubidas/PLaza Mayor Nuevo Chimbote1.jpg'),
+(6, 6, 1, 'prueba', '2025-02-05 17:34:27', 'Complejo Polideportivo de Bruces, Avenida Central, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
+(7, 9, 1, 'preuba2', '2025-02-05 17:47:39', '', 'Pendiente', NULL),
+(8, 4, 1, 'prueba3', '2025-02-05 17:49:02', '', 'Pendiente', NULL),
+(9, 11, 1, 'tengo problemas con mi luz', '2025-02-07 13:45:48', '', 'Pendiente', NULL),
+(10, 11, 1, 'prueba 3', '2025-02-07 14:03:12', '', 'Pendiente', NULL),
+(15, 11751245, 1, 'prueba5', '2025-02-07 17:19:42', 'Polideportivo Casuarinas, Pasaje Los Cipreces, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', NULL),
+(16, 11751245, 1, 'prueba5', '2025-02-07 17:29:41', 'Polideportivo Casuarinas, Pasaje Los Cipreces, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', NULL),
+(17, 11751245, 1, 'prueba 4', '2025-02-07 17:30:39', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', NULL),
+(18, 70718596, 1, 'Una farola que se encuentra del lado de las farmacias, cerca de un acuario se encuentra dañada, esta que parpadea desde hace rato', '2025-02-07 17:50:22', 'Óvalo La Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
+(19, 70718596, 1, 'Una farola que se encuentra del lado de las farmacias, cerca de un acuario se encuentra dañada, esta que parpadea desde hace rato', '2025-02-07 18:02:20', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
+(20, 70718596, 1, 'prueba 6', '2025-02-10 01:25:08', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
+(21, 99999999, 1, 'prueba 7', '2025-02-10 15:44:33', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
+(22, 99999999, 4, 'prueba baches 1', '2025-02-10 15:46:09', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/bache.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `idUsuario` int(11) NOT NULL,
+  `TipoIdentificacion` int(11) DEFAULT NULL,
+  `Nombres` varchar(100) NOT NULL,
+  `Apellidos` varchar(100) NOT NULL,
+  `Telefono` int(9) DEFAULT NULL,
+  `Direccion` varchar(255) DEFAULT NULL,
+  `Correo` varchar(255) NOT NULL,
+  `Fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `TipoIdentificacion`, `Nombres`, `Apellidos`, `Telefono`, `Direccion`, `Correo`, `Fecha_registro`) VALUES
+(1, 1, 'Juan', 'Perez', 123456789, 'Calle 123, Ciudad', 'juan.perez@example.com', '2025-01-19 03:32:05'),
+(2, 1, 'Isaac Takamura', 'Takamura Rojas', 942029405, 'bruces G', 'isaactakamura@gmail.com', '2025-01-22 05:04:46'),
+(3, 1, 'Isaac', 'Prueba', 942029404, 'Ovalo de la Familia', 'pabloft@gmail.com', '2025-01-22 05:44:06'),
+(4, 1, 'Isaac Ivanov', 'Takamura Rojas', 942029405, 'Parque del amor y la amistad', 'isaactakamura107@gmail.com', '2025-01-24 16:57:02'),
+(5, 1, 'Francisco Jesus', 'Cordova Natividad', 960523757, 'San Luis', 'pabloftandwillian@gmail.com', '2025-01-24 17:03:23'),
+(6, 1, 'Nicolas', 'Dick', 942029555, 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'takamuraisaac@gmail.com', '2025-02-05 17:34:27'),
+(9, NULL, 'Nicolas 2', 'Prueba 2', 0, '', 'nicolas2@gmail.com', '2025-02-05 17:47:39'),
+(11, 0, 'Rick Jason', 'Fernandez Torres', 999029555, 'Polideportivo Casuarinas, Avenida Las Palmeras, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Rickjason2975@gmail.com', '2025-02-07 13:45:48'),
+(11751245, 1, 'Nicolas Isma', 'Alayo Arias', 955029555, 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'NicolasIsma@gmail.com', '2025-02-07 17:19:42'),
+(70718596, 1, 'Victor Andree', 'Sevillano Vega', 946330198, 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'tengoChamba21@gmail.com', '2025-02-07 17:50:22'),
+(99999999, 1, '999', '999', 999999999, 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', '999@gmail.com', '2025-02-10 15:44:33');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`idCategorias`),
+  ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
+-- Indices de la tabla `detalles_reporte`
+--
+ALTER TABLE `detalles_reporte`
+  ADD PRIMARY KEY (`idDetallesReporte`),
+  ADD KEY `reporte_id` (`reporte_id`);
+
+--
+-- Indices de la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  ADD PRIMARY KEY (`idReporte`),
+  ADD KEY `categoria_id` (`categoria_id`),
+  ADD KEY `reportes_ibfk_1` (`usuario_id`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD UNIQUE KEY `Correo` (`Correo`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `idCategorias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `detalles_reporte`
+--
+ALTER TABLE `detalles_reporte`
+  MODIFY `idDetallesReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `detalles_reporte`
+--
+ALTER TABLE `detalles_reporte`
+  ADD CONSTRAINT `detalles_reporte_ibfk_1` FOREIGN KEY (`reporte_id`) REFERENCES `reportes` (`idReporte`);
+
+--
+-- Filtros para la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  ADD CONSTRAINT `reportes_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`idUsuario`),
+  ADD CONSTRAINT `reportes_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`idCategorias`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

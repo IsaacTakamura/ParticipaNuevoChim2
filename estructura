@@ -1,0 +1,29 @@
+/YoOpinoNeoChimb
+├── /confirmacion          # Confirmación de reporte
+│   └── confirmacion.php
+├── /css                   # Estilos
+│   └── estilos.css
+├── /js                    # Scripts
+│   └── scripts.js
+├── /forms                 # Formularios
+│   ├── /alumbrado
+│   │   └── alumbrado.php
+│   ├── /baches
+│   │   └── baches.php
+│   ├── /basura
+│   │   └── basura.php
+│   └── /parques
+│       └── parques.php
+├── /incluides              # Encabezado y pie de página
+├── /images                # Imágenes
+│   └── imagenes
+├── /ImgSubidas            # Imágenes subidas
+│   └── imagenes
+├── /templates             # Plantillas o vistas
+│   ├── home.php
+│   └── CVVDF.php
+├── /data                  # Archivos de datos y conexión a la base de datos
+│   └── db_connection.php
+├── index.php
+├── report.php
+└── process_report.php
