@@ -165,13 +165,6 @@
     </form>
   </div>
 
-  <script>
-    document.getElementById('multiStepForm').addEventListener('submit', function () {
-      // Perform form submission logic here
-      window.location.href = '../../templates/CVVDF.php';
-    });
-  </script>
-
   <!-- Bootstrap JS -->
   <script src="ga.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
