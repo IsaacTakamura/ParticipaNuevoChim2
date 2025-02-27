@@ -34,9 +34,17 @@ include_once 'data/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["adjunto"])) {
     $target_dir = "ImgSubidas/";
-    $target_file = $target_dir . basename($_FILES["adjunto"]["name"]);
+    $allowed = ['jpg', 'png', 'jpeg', 'gif', 'bmp', 'pdf'];
+    $extension = strtolower(pathinfo($_FILES["adjunto"]["name"], PATHINFO_EXTENSION));
+
+    if (!in_array($extension, $allowed)) {
+        die("Tipo de archivo no permitido");
+    }
+
+    // Renombrar archivo
+    $new_name = uniqid('', true) . '.' . $extension;
+    $target_file = $target_dir . $new_name;
     $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     // Check if image file is a actual image or fake image
     $check = getimagesize($_FILES["adjunto"]["tmp_name"]);
@@ -47,24 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["adjunto"])) {
         $uploadOk = 0;
     }
 
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
-
     // Check file size
     if ($_FILES["adjunto"]["size"] > 5000000) { // 5MB limit
         echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    // Allow certain file formats
-    if (
-        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" && $imageFileType != "bmp" && $imageFileType != "pdf"
-    ) {
-        echo "Sorry, only JPG, JPEG, PNG, GIF, BMP & PDF files are allowed.";
         $uploadOk = 0;
     }
 
