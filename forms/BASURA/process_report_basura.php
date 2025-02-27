@@ -5,14 +5,14 @@ require_once '../../vendor/autoload.php'; // Asegúrate de que la ruta sea corre
 require_once '../../upload_image.php'; // Asegúrate de que este archivo existe y tiene la conexión correcta
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Nombres = $_POST['Nombres'] ?? '';
-    $apellidos = $_POST['apellidos'] ?? '';
-    $TipoIdentificacion = $_POST['TipoIdentificacion'] ?? '';
-    $idUsuario = $_POST['docNumber'] ?? ''; // Usar el número de documento como idUsuario
-    $Telefono = $_POST['Telefono'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $Direccion = $_POST['Direccion'] ?? '';
-    $descripcion = $_POST['descripcion'] ?? '';
+    $Nombres = filter_input(INPUT_POST, 'Nombres', FILTER_SANITIZE_STRING);
+    $apellidos = filter_input(INPUT_POST, 'apellidos', FILTER_SANITIZE_STRING);
+    $TipoIdentificacion = filter_input(INPUT_POST, 'TipoIdentificacion', FILTER_SANITIZE_STRING);
+    $idUsuario = filter_input(INPUT_POST, 'docNumber', FILTER_SANITIZE_STRING); // Usar el número de documento como idUsuario
+    $Telefono = filter_input(INPUT_POST, 'Telefono', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $Direccion = filter_input(INPUT_POST, 'Direccion', FILTER_SANITIZE_STRING);
+    $descripcion = filter_input(INPUT_POST, 'descripcion', FILTER_SANITIZE_STRING);
     $categoria_id = 4; // Basura por defecto
 
     if (empty($Nombres) || empty($email) || empty($descripcion)) {
@@ -84,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
     }
     $conn->close();
+
 } else {
     echo "Método no permitido.";
 }
