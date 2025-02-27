@@ -15,6 +15,8 @@ class Database
         if ($this->connection->connect_error) {
             die("Connection failed: " . $this->connection->connect_error);
         }
+        // Añadir esta línea
+        $this->connection->set_charset("utf8mb4");
     }
 
     public static function getInstance()
