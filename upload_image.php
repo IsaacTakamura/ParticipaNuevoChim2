@@ -77,12 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["adjunto"])) {
             echo "The file " . htmlspecialchars(basename($_FILES["adjunto"]["name"])) . " has been uploaded.";
             // Save the file URL to the database
             $foto_url = $target_file;
-            $sql = "INSERT INTO reportes (foto_url) VALUES ('$foto_url')";
-            if ($conn->query($sql) === TRUE) {
+            $stmt = $conn->prepare("INSERT INTO reportes (foto_url) VALUES (?)");
+            $stmt->bind_param("s", $foto_url);
+            if ($stmt->execute()) {
                 echo "File URL saved to database.";
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $stmt->error;
             }
+            $stmt->close();
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
