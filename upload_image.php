@@ -30,7 +30,7 @@
  * Mensajes de error para varios fallos de validación.
  * Mensajes de éxito para la carga de archivos y la inserción en la base de datos.
  */
-include 'data/db_connection.php';
+include_once 'data/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["adjunto"])) {
     $target_dir = "ImgSubidas/";
