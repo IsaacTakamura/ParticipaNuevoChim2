@@ -33,5 +33,4 @@ class Database
 
 // Uso del Singleton para obtener la conexión
 $db = Database::getInstance()->getConnection();
-echo "Connected successfully";
 ?>
