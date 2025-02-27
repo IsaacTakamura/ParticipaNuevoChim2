@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Nombres = filter_input(INPUT_POST, 'Nombres', FILTER_SANITIZE_STRING);
     $apellidos = filter_input(INPUT_POST, 'apellidos', FILTER_SANITIZE_STRING);
     $TipoIdentificacion = filter_input(INPUT_POST, 'TipoIdentificacion', FILTER_SANITIZE_STRING);
-    $idUsuario = filter_input(INPUT_POST, 'docNumber', FILTER_SANITIZE_STRING); // Usar el número de documento como idUsuario
+    $idUsuario = filter_input(INPUT_POST, 'docNumber', FILTER_VALIDATE_INT); // Validar como entero
     $Telefono = filter_input(INPUT_POST, 'Telefono', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $Direccion = filter_input(INPUT_POST, 'Direccion', FILTER_SANITIZE_STRING);
@@ -17,6 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($Nombres) || empty($email) || empty($descripcion)) {
         die("Error: Todos los campos obligatorios deben estar llenos");
+    }
+
+    if (!$idUsuario) {
+        die("Número de documento inválido");
     }
 
     // Subir la foto
