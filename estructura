@@ -1,29 +1,41 @@
-/YoOpinoNeoChimb
-├── /confirmacion          # Confirmación de reporte
-│   └── confirmacion.php
-├── /css                   # Estilos
-│   └── estilos.css
-├── /js                    # Scripts
-│   └── scripts.js
-├── /forms                 # Formularios
-│   ├── /alumbrado
-│   │   └── alumbrado.php
-│   ├── /baches
-│   │   └── baches.php
-│   ├── /basura
-│   │   └── basura.php
-│   └── /parques
-│       └── parques.php
-├── /incluides              # Encabezado y pie de página
-├── /images                # Imágenes
-│   └── imagenes
-├── /ImgSubidas            # Imágenes subidas
-│   └── imagenes
-├── /templates             # Plantillas o vistas
-│   ├── home.php
-│   └── CVVDF.php
-├── /data                  # Archivos de datos y conexión a la base de datos
-│   └── db_connection.php
-├── index.php
-├── report.php
-└── process_report.php
+isaactakamura-participanuevochim2/
+├── app/
+│   ├── controllers/
+│   │   ├── ReportController.php         # Controlador principal
+│   │   ├── BasuraController.php         # Controlador de reportes de basura
+│   │   ├── AlumbradoController.php      # Controlador de alumbrado
+│   │   ├── BachesController.php         # Controlador de baches
+│   │   └── EspaciosPublicosController.php
+│   ├── models/
+│   │   ├── Database.php                 # Modelo de conexión (db_connection.php)
+│   │   ├── Usuario.php                  # Modelo de usuarios
+│   │   ├── Reporte.php                  # Modelo de reportes
+│   │   └── Categoria.php                # Modelo de categorías
+│   └── views/
+│       ├── templates/
+│       │   ├── header.php               # Encabezado común
+│       │   └── footer.php               # Pie de página
+│       ├── reportes/
+│       │   ├── basura.php               # Vista de formulario de basura
+│       │   ├── alumbrado.php            # Vista de formulario de alumbrado
+│       │   ├── baches.php               # Vista de formulario de baches
+│       │   └── espacios_publicos.php
+│       ├── confirmacion/
+│       │   └── confirmacion.php         # Vista de confirmación
+│       └── CVVDF.php                    # Vista principal (home)
+├── public/
+│   ├── assets/
+│   │   ├── css/                         # Todos los archivos CSS
+│   │   ├── js/                          # Todos los archivos JS
+│   │   └── images/                      # Imágenes del proyecto
+│   ├── ImgSubidas/                      # Imágenes subidas por usuarios
+│   └── index.php                        # Front Controller (antiguo CVVDF.php)
+├── config/
+│   ├── routes.php                       # Configuración de rutas
+│   └── constants.php                    # Constantes del proyecto
+├── vendor/                              # Dependencias de Composer
+└── src/
+    ├── helpers/
+    │   ├── Mailer.php                   # Lógica de envío de correos
+    │   └── Uploader.php                 # Manejo de subida de archivos
+    └── services/                        # Servicios adicionales
