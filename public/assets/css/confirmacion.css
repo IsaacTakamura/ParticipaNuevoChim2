@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to top, #54ac57, #4caf50, #99eb9b);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-container {
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.image-container img.active {
+    opacity: 1;
+}
+
+.pillars-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 700px;
+    position: relative;
+    margin-top: 50px;
+}
+
+.pillar {
+    background: black;
+    position: relative;
+    border-radius: 5px;
+}
+
+.pillar::before,
+.pillar::after {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 20px;
+    background: black;
+    left: -15%;
+    border-radius: 3px;
+}
+
+.pillar::before {
+    top: -10px;
+}
+
+.pillar::after {
+    bottom: -10px;
+}
+
+.pillar-center {
+    width: 120px;
+    height: 200px;
+}
+
+.pillar-medium {
+    width: 100px;
+    height: 140px;
+}
+
+.pillar-small {
+    width: 80px;
+    height: 100px;
+}
+
+@keyframes bounce {
+    0% { transform: translate(-50%, -50%) translateY(-30px); opacity: 0; }
+    40% { transform: translate(-50%, -50%) translateY(10px); opacity: 1; }
+    60% { transform: translate(-50%, -50%) translateY(-5px); }
+    80% { transform: translate(-50%, -50%) translateY(3px); }
+    100% { transform: translate(-50%, -50%) translateY(0); }
+}
+
+.message-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 500px;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    animation: bounce 1s ease-out;
+}
