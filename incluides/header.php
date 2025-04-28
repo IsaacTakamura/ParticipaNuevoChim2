@@ -7,75 +7,21 @@
     .navbar-nav .nav-link {
         color: #000000;
         transition: background-color 0.3s ease;
-        border-radius: 5px;
-        /* Añadir bordes redondeados */
-    }
-
-    .navbar-nav .nav-link:hover {
-        background-color: #FFC107;
-        color: #000000;
-        border-radius: 7px;
-        /* Añadir bordes redondeados */
-        font-family: "Raleway", serif;
+        border-radius: 3px;
     }
 
     .nav-item {
         margin-right: 10px;
-        border-radius: 5px;
-        /* Añadir bordes redondeados */
+        border-radius: 3px;
     }
 
     .header {
-
         display: grid;
         grid-template-columns: 80% 20%;
         position: relative;
-
-        background-image: url('../images/HeaderPlazaMayor.png');
+        background-image: url('/ParticipaNuevoChim2/images/HeaderPlazaMayor.png');
         background-size: cover;
         background-position: center;
-    }
-
-    .button-container {
-        display: flex;
-        background-color: rgba(0, 73, 144);
-        width: 250px;
-        height: 40px;
-        align-items: center;
-        justify-content: space-around;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px,
-            rgba(0, 73, 144, 0.5) 5px 10px 15px;
-        transition: all 0.5s;
-    }
-
-    .button-container:hover {
-        width: 300px;
-        transition: all 0.5s;
-        transform: translateY(-3px);
-    }
-
-    .button {
-        outline: 1 !important;
-        border: 1 !important;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        transition: all ease-in-out 0.3s;
-        cursor: pointer;
-    }
-
-    .button:hover {
-        transform: translateY(-3px);
-    }
-
-    .icon {
-        font-size: 20px;
     }
 
     .header-right {}
@@ -83,6 +29,14 @@
     .header-left {
         background-color: #D1D1D1;
         clip-path: polygon(0 0, 80% 0, 70% 100%, 0% 100%);
+    }
+
+    .navbar-separator {
+        height: 0.01rem;
+        background-color: #4B4B4B;
+        /* Dark gray color */
+        margin-top: 0;
+        margin-bottom: 0;
     }
 </style>
 <!DOCTYPE html>
@@ -106,25 +60,10 @@
         <div class="header-left">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-img" href="#">
-                    <img src="../images/logo.png" alt="Logo" width="180" height="50">
+                    <img src="/ParticipaNuevoChim2/images/logo.png" alt="Logo" width="180" height="50">
                 </a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><b>Quienes somos?</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><b>Como tu opinion aporta?</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><b>Dejar tu comentario</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><b>Campañas</b></a>
-                        </li>
-                    </ul>
-                </div>
             </nav>
+            <div class="navbar-separator"></div>
         </div>
         <div class="header-right"></div>
     </header>
