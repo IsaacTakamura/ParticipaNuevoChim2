@@ -91,25 +91,8 @@
                 <h1 class="text-xl font-bold text-emerald-700 mb-2">
                     Conoce "Yo Participo", espacio de participación ciudadana en Nuevo Chimbote
                 </h1>
-                <p class="text-gray-600">
-                    Yo participo es un espacio dedicado a la ciudadanía. Compártenos tus opiniones sobre esta hermosa
-                    ciudad.
-                    ¡Construye tu ciudad!
-                </p>
             </div>
-        </section>
-
-        <!-- Sección de Reportes -->
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl font-bold text-gray-800">Reporta</h2>
-                <p class="text-gray-600 mt-2">
-                    Recogeremos y atenderemos tus necesidades. Reporta huecos, fallas en alumbrado público, recolección
-                    de
-                    basura o inconvenientes.
-                </p>
-            </div>
-
+            <br>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Basura -->
                 <a href="forms/BASURA/basura.php"
@@ -152,8 +135,20 @@
                 </a>
 
             </div>
+            <br>
+            <div class="text-center mb-8">
+                <p class="text-gray-600 mt-2">
+                    Recogeremos y atenderemos tus necesidades. Reporta huecos, fallas en alumbrado público,
+                    recolección
+                    de
+                    basura o inconvenientes.
+                </p>
+            </div>
 
-        </div>
+        </section>
+
+        <!-- Sección de Reportes -->
+
         <br>
         <!-- Sección de Noticia Principal -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-10">

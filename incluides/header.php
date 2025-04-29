@@ -1,4 +1,8 @@
 <style>
+    .navbar-light {
+        background-color: #fbf5ea !important;
+    }
+
     .navbar-text {
         display: flex;
         align-items: center;
@@ -8,6 +12,7 @@
         color: #000000;
         transition: background-color 0.3s ease;
         border-radius: 3px;
+        background-color: #fbf5ea;
     }
 
     .nav-item {
@@ -17,26 +22,10 @@
 
     .header {
         display: grid;
-        grid-template-columns: 80% 20%;
         position: relative;
-        background-image: url('/ParticipaNuevoChim2/images/HeaderPlazaMayor.png');
         background-size: cover;
         background-position: center;
-    }
-
-    .header-right {}
-
-    .header-left {
-        background-color: #D1D1D1;
-        clip-path: polygon(0 0, 80% 0, 70% 100%, 0% 100%);
-    }
-
-    .navbar-separator {
-        height: 0.01rem;
-        background-color: #4B4B4B;
-        /* Dark gray color */
-        margin-top: 0;
-        margin-bottom: 0;
+        background-color: #fbf5ea;
     }
 </style>
 <!DOCTYPE html>
@@ -63,9 +52,7 @@
                     <img src="/ParticipaNuevoChim2/images/logo.png" alt="Logo" width="180" height="50">
                 </a>
             </nav>
-            <div class="navbar-separator"></div>
         </div>
-        <div class="header-right"></div>
     </header>
     <!-- Resto del contenido de la página -->
 </body>
