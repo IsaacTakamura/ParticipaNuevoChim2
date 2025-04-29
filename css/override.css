@@ -1,0 +1,21 @@
+/* Eliminar subrayado en títulos y textos dentro de los menús */
+.menu-item h3, 
+.menu-item p,
+.menu-item-titulo h2, 
+.menu-item-text p,
+.menu-item:hover h3,
+.menu-item:hover p,
+.menu-item:hover .menu-item-titulo h2,
+.menu-item:hover .menu-item-text p {
+    text-decoration: none !important;
+}
+
+/* Eliminar subrayado en todos los estados de los enlaces */
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
