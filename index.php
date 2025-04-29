@@ -114,7 +114,7 @@
                 <a href="forms/BASURA/basura.php"
                     class="menu-item block bg-white rounded-lg border border-gray-200 p-4 text-center hover:border-emerald-500 hover:bg-emerald-50">
                     <div class="w-16 h-16 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                        <img src="../images/basura.png" alt="Basura" class="w-8 h-8">
+                        <img src="images/basura.png" alt="Basura" class="w-8 h-8">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Basura</h3>
                     <p class="text-sm text-gray-500">Reporta residuos en la calle.</p>
@@ -134,7 +134,7 @@
                 <a href="forms/baches/baches.php"
                     class="menu-item block bg-white rounded-lg border border-gray-200 p-4 text-center hover:border-emerald-500 hover:bg-emerald-50">
                     <div class="w-16 h-16 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                        <img src="../images/baches.png" alt="Baches" class="w-8 h-8">
+                        <img src="images/baches.png" alt="Baches" class="w-8 h-8">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Baches</h3>
                     <p class="text-sm text-gray-500">Informa sobre daños en las calles.</p>
@@ -144,7 +144,7 @@
                 <a href="forms/espaciosPublicos/espacio.php"
                     class="menu-item block bg-white rounded-lg border border-gray-200 p-4 text-center hover:border-emerald-500 hover:bg-emerald-50">
                     <div class="w-16 h-16 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                        <img src="../images/espaciospublico.png" alt="Espacios Públicos" class="w-8 h-8">
+                        <img src="images/espaciospublico.png" alt="Espacios Públicos" class="w-8 h-8">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Espacios Públicos</h3>
                     <p class="text-sm text-gray-500">Notifica problemas en parques o plazas.</p>
