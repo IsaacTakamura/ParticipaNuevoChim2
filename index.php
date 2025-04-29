@@ -124,7 +124,7 @@
                 <a href="forms/alumbrado/alumbrado.php"
                     class="menu-item block bg-white rounded-lg border border-gray-200 p-4 text-center hover:border-emerald-500 hover:bg-emerald-50">
                     <div class="w-16 h-16 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                        <img src="../images/alumbrado.png" alt="Alumbrado Público" class="w-8 h-8">
+                        <img src="images/alumbrado.png" alt="Alumbrado Público" class="w-8 h-8">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Alumbrado Público</h3>
                     <p class="text-sm text-gray-500">Reporta farolas dañadas o apagadas.</p>
