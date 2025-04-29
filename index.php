@@ -7,9 +7,6 @@
     <title>Reportes Ciudadanos</title>
 
     <!-- Mantener los CSS originales -->
-    <link rel="stylesheet" href="../css/cartas_index.css">
-    <link rel="stylesheet" href="../css/contenedorNoticia.css">
-    <link rel="stylesheet" href="../css/CVVDF.css">
     <link rel="stylesheet" href="css/override.css">
 
     <!-- Agregar Tailwind CSS -->
