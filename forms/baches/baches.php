@@ -14,7 +14,7 @@
   <!-- Roboto Condensed -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="../../css/form-baches.css">
 </head>
 
 <body>
@@ -154,59 +154,15 @@
   <script>
     document.getElementById('multiStepForm').addEventListener('submit', function () {
       // Perform form submission logic here
-      window.location.href = '../../templates/CVVDF.php';
+      window.location.href = '../../index.php';
     });
   </script>
 
   <!-- Bootstrap JS -->
-  <script src="ga.js"></script>
+  <script src="../../js/form-baches.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const nextBtns = document.querySelectorAll('.next-btn');
-      const prevBtns = document.querySelectorAll('.prev-btn');
-      const formSteps = document.querySelectorAll('.form-step');
-      let formStepIndex = 0;
 
-      nextBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          formStepIndex++;
-          updateFormSteps();
-          updateProgressBar();
-          if (formStepIndex === 2) {
-            updateSummary();
-          }
-        });
-      });
-
-      prevBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          formStepIndex--;
-          updateFormSteps();
-          updateProgressBar();
-        });
-      });
-
-      function updateFormSteps() {
-        formSteps.forEach((formStep, index) => {
-          formStep.classList.toggle('active', index === formStepIndex);
-        });
-      }
-
-      function updateProgressBar() {
-        const progressBar = document.getElementById('progressBar');
-        progressBar.style.width = `${(formStepIndex + 1) * 33}%`;
-      }
-
-      function updateSummary() {
-        document.getElementById('summary-name').textContent = document.getElementById('Nombres').value;
-        document.getElementById('summary-lastname').textContent = document.getElementById('apellidos').value;
-        document.getElementById('summary-docNumber').textContent = `${document.getElementById('docNumber').value} ${document.getElementById('TipoIdentificacion').value}`;
-        document.getElementById('summary-phone').textContent = document.getElementById('Telefono').value;
-        document.getElementById('summary-email').textContent = document.getElementById('email').value;
-        document.getElementById('summary-report').textContent = document.getElementById('descripcion').value;
-      }
-    });
   </script>
 </body>
 
