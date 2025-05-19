@@ -1,7 +1,7 @@
 <?php
 require_once '../../data/db_connection.php';
 require_once 'send_email.php';
-require_once '../../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 require_once '../../email_template.php';
 
 // Eliminar cualquier referencia a upload_image.php
@@ -32,17 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Máximo 3 fotos permitidas");
     }
 
-    // Procesar las fotos (ejemplo: moverlas a una carpeta y guardar sus rutas)
-    $foto_urls = [];
-    //revisar este codigo porque ya no deberia ser necesario
-    $upload_dir = '../../uploads/';
+    // Eliminar todo el bloque de procesamiento de imágenes
+    // Reemplazar con:
+    $foto_tmp_paths = [];
     foreach ($_FILES['photos']['tmp_name'] as $key => $tmp_name) {
         if ($_FILES['photos']['error'][$key] === UPLOAD_ERR_OK) {
-            $filename = uniqid() . '_' . basename($_FILES['photos']['name'][$key]);
-            $target_path = $upload_dir . $filename;
-            if (move_uploaded_file($tmp_name, $target_path)) {
-                $foto_urls[] = $target_path;
-            }
+            $foto_tmp_paths[] = $tmp_name; // Guardar rutas temporales
         }
     }
 
@@ -65,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     $subject = "Confirmación de reporte de espacios públicos";
-    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_urls[0] ?? null);
-    if (!send_email($email, $subject, $message, $foto_urls)) {
+    $message = generate_email_content($Nombres, $descripcion, $Direccion, null); // No hay URL de foto
+    if (!send_email($email, $subject, $message, $foto_tmp_paths)) {
         echo "Error al enviar el correo de confirmación.";
     }
 

@@ -2,23 +2,23 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../../vendor/autoload.php'; // Asegúrate de que la ruta sea correcta
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 if (!function_exists('send_email')) {
     // Esta función envía un correo electrónico de confirmación después de recibir un reporte
-    function send_email($to, $subject, $message)
+    function send_email($to, $subject, $message, $tmp_paths = [])
     {
         $mail = new PHPMailer(true);
 
         try {
             // Configuración del servidor SMTP
             $mail->isSMTP();
-            $mail->Host = 'mail.muninuevochimbote.gob.pe'; // Servidor SMTP
+            $mail->Host = 'mail.muninuevochimbote.gob.pe';
             $mail->SMTPAuth = true;
-            $mail->Username = 'huecos@muninuevochimbote.gob.pe'; // Correo de autenticación
-            $mail->Password = 'MDNCH*2025'; // Contraseña
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Usar SSL
-            $mail->Port = 465; // Puerto SMTP con SSL
+            $mail->Username = 'huecos@muninuevochimbote.gob.pe';
+            $mail->Password = 'MDNCH*2025';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 465;
 
             // Configuración del correo
             $mail->CharSet = 'UTF-8';
@@ -27,18 +27,14 @@ if (!function_exists('send_email')) {
             $mail->addAddress($to);
             $mail->Subject = $subject;
 
-            // Adjuntar las fotos al correo
-            if (!empty($_FILES['photos'])) {
-                foreach ($_FILES['photos']['tmp_name'] as $key => $tmpName) {
-                    if ($_FILES['photos']['error'][$key] === UPLOAD_ERR_OK) {
-                        $mail->addAttachment(
-                            $tmpName,
-                            $_FILES['photos']['name'][$key]
-                        );
+            // Adjuntar imágenes desde rutas temporales
+            if (!empty($tmp_paths)) {
+                foreach ($tmp_paths as $tmp_path) {
+                    if (file_exists($tmp_path)) {
+                        $mail->addAttachment($tmp_path, basename($tmp_path));
                     }
                 }
-                // Agregar texto genérico sobre las imágenes adjuntas
-                $message .= "<p>Se han adjuntado " . count($_FILES['photos']['name']) . " imágenes como evidencia.</p>";
+                $message .= "<p>Se han adjuntado " . count($tmp_paths) . " imágenes como evidencia.</p>";
             }
 
             $mail->Body = $message;
@@ -48,7 +44,6 @@ if (!function_exists('send_email')) {
             $mail->send();
             return true;
         } catch (Exception $e) {
-            // Manejo de errores usando el catch de PHPMailer
             echo "Error al enviar el correo: {$mail->ErrorInfo}";
             return false;
         }

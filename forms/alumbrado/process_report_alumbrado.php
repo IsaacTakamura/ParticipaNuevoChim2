@@ -1,7 +1,7 @@
 <?php
 require_once '../../data/db_connection.php';
 require_once 'send_email.php';
-require_once '../../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 require_once '../../email_template.php';
 
 // Eliminar cualquier referencia a upload_image.php
@@ -32,16 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Máximo 3 fotos permitidas");
     }
 
-    // Procesar las fotos subidas
-    $foto_urls = [];
-    //revisar este codigo porque ya no deberia ser necesario
-    $upload_dir = '../../uploads/';
-    for ($i = 0; $i < count($_FILES['photos']['name']); $i++) {
-        $tmp_name = $_FILES['photos']['tmp_name'][$i];
-        $name = basename($_FILES['photos']['name'][$i]);
-        $target_file = $upload_dir . uniqid() . '_' . $name;
-        if (move_uploaded_file($tmp_name, $target_file)) {
-            $foto_urls[] = $target_file;
+    // Eliminar todo el bloque de procesamiento de imágenes
+    // Reemplazar con:
+    $foto_tmp_paths = [];
+    foreach ($_FILES['photos']['tmp_name'] as $idx => $tmp_name) {
+        if ($_FILES['photos']['error'][$idx] === UPLOAD_ERR_OK) {
+            $foto_tmp_paths[] = $tmp_name; // Guardar rutas temporales
         }
     }
 
@@ -64,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     $subject = "Confirmación de reporte de alumbrado público";
-    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_urls[0] ?? null);
-    if (!send_email($email, $subject, $message, $foto_urls)) {
+    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_tmp_paths[0] ?? null);
+    if (!send_email($email, $subject, $message, $foto_tmp_paths)) {
         echo "Error al enviar el correo de confirmación.";
     }
 

@@ -19,3 +19,4 @@
 </body>
 
 </html>
+<script src="../js/confirmacion.js"></script>

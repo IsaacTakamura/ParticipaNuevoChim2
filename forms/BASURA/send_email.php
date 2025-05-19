@@ -2,11 +2,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../../vendor/autoload.php'; // Asegúrate de que la ruta sea correcta
+require_once __DIR__ . '/../../vendor/autoload.php'; // Asegúrate de que la ruta sea correcta
 
 if (!function_exists('send_email')) {
     // Esta función envía un correo electrónico de confirmación después de recibir un reporte
-    function send_email($to, $subject, $message)
+    function send_email($to, $subject, $message, $tmp_paths = [])
     {
         $mail = new PHPMailer(true);
 
@@ -28,18 +28,13 @@ if (!function_exists('send_email')) {
             $mail->Subject = $subject;
             $mail->isHTML(true);
 
-            // Adjuntar las fotos al correo
-            if (!empty($_FILES['photos'])) {
-                foreach ($_FILES['photos']['tmp_name'] as $key => $tmpName) {
-                    if ($_FILES['photos']['error'][$key] === UPLOAD_ERR_OK) {
-                        $mail->addAttachment(
-                            $tmpName,
-                            $_FILES['photos']['name'][$key]
-                        );
-                    }
+            // Adjuntar imágenes desde rutas temporales
+            if (!empty($tmp_paths)) {
+                foreach ($tmp_paths as $tmp_path) {
+                    $mail->addAttachment($tmp_path, basename($tmp_path));
                 }
                 // Agregar texto genérico sobre las imágenes adjuntas
-                $message .= "<p>Se han adjuntado " . count($_FILES['photos']['name']) . " imágenes como evidencia.</p>";
+                $message .= "<p>Se han adjuntado " . count($tmp_paths) . " imágenes como evidencia.</p>";
             }
 
             $mail->Body = $message;

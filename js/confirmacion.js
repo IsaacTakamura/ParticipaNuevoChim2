@@ -1,5 +1,5 @@
 setTimeout(function() {
-    window.location.href = "../templates/CVVDF.php";
+    window.location.href = "../index.php";
 }, 5000);
 
 let index = 0;
