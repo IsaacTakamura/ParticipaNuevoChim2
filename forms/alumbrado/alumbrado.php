@@ -122,20 +122,26 @@
               <textarea id="descripcion" name="descripcion" class="form-control"
                 placeholder="Describe la Ubicación y el problema en detalle" rows="4" required></textarea>
             </div>
+            <!-- Reemplazar los inputs individuales de fotos por este bloque -->
             <div class="mb-3">
-              <label for="photo1" class="form-label"><i class="fa-solid fa-camera"></i> Subir Foto del Problema
-                1</label>
-              <input type="file" id="photo1" name="photos[]" class="form-control" accept="image/*">
-            </div>
-            <div class="mb-3">
-              <label for="photo2" class="form-label"><i class="fa-solid fa-camera"></i> Subir Foto del Problema
-                2</label>
-              <input type="file" id="photo2" name="photos[]" class="form-control" accept="image/*">
-            </div>
-            <div class="mb-3">
-              <label for="photo3" class="form-label"><i class="fa-solid fa-camera"></i> Subir Foto del Problema
-                3</label>
-              <input type="file" id="photo3" name="photos[]" class="form-control" accept="image/*">
+                <label for="photos" class="form-label">
+                    <i class="fa-solid fa-camera"></i> Subir fotos del problema 
+                    <small>(Mínimo 1, máximo 3)</small>
+                </label>
+                <input 
+                    type="file" 
+                    id="photos" 
+                    name="photos[]" 
+                    class="form-control"
+                    accept="image/*"
+                    multiple
+                    data-max-files="3"
+                    required
+                >
+                <div class="invalid-feedback">Debes subir al menos 1 foto</div>
+                <small class="form-text text-muted">
+                    Puedes seleccionar hasta 3 fotos a la vez (JPEG, PNG, GIF)
+                </small>
             </div>
           </div>
         </div>

@@ -6,41 +6,48 @@ require '../../vendor/autoload.php'; // Asegúrate de que la ruta sea correcta
 
 if (!function_exists('send_email')) {
     // Esta función envía un correo electrónico de confirmación después de recibir un reporte
-    function send_email($to, $subject, $message, $attachments = [])
+    function send_email($to, $subject, $message)
     {
         $mail = new PHPMailer(true);
 
         try {
             // Configuración del servidor SMTP
             $mail->isSMTP();
-            $mail->Host = 'mail.muninuevochimbote.gob.pe'; // Servidor SMTP
+            $mail->Host = 'mail.muninuevochimbote.gob.pe';
             $mail->SMTPAuth = true;
-            $mail->Username = 'basura@muninuevochimbote.gob.pe'; // Correo de autenticación
-            $mail->Password = 'MDNCH*2025'; // Contraseña
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Usar SSL
-            $mail->Port = 465; // Puerto SMTP con SSL
+            $mail->Username = 'basura@muninuevochimbote.gob.pe';
+            $mail->Password = 'MDNCH*2025';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 465;
 
             // Configuración del correo
-            $mail->CharSet = 'UTF-8'; // Establecer la codificación de caracteres a UTF-8
-            $mail->Encoding = 'base64'; // Establecer la codificación del contenido a base64
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
             $mail->setFrom('basura@muninuevochimbote.gob.pe', 'Reporte de Basura');
-            $mail->addAddress($to); // Correo destinatario
+            $mail->addAddress($to);
             $mail->Subject = $subject;
-            $mail->Body = $message;
-            $mail->isHTML(true); // Establecer el formato del correo a HTML
+            $mail->isHTML(true);
 
-            // Adjuntar las imágenes si existen
-            if (!empty($attachments)) {
-                foreach ($attachments as $attachment) {
-                    $mail->addAttachment($attachment);
+            // Adjuntar las fotos al correo
+            if (!empty($_FILES['photos'])) {
+                foreach ($_FILES['photos']['tmp_name'] as $key => $tmpName) {
+                    if ($_FILES['photos']['error'][$key] === UPLOAD_ERR_OK) {
+                        $mail->addAttachment(
+                            $tmpName,
+                            $_FILES['photos']['name'][$key]
+                        );
+                    }
                 }
+                // Agregar texto genérico sobre las imágenes adjuntas
+                $message .= "<p>Se han adjuntado " . count($_FILES['photos']['name']) . " imágenes como evidencia.</p>";
             }
 
-            // Enviar el correo
+            $mail->Body = $message;
+
             $mail->send();
             return true;
         } catch (Exception $e) {
-            echo "Error al enviar el correo: {$mail->ErrorInfo}";
+            echo "Error al enviar el correo: {$e->getMessage()}";
             return false;
         }
     }

@@ -2,8 +2,9 @@
 require_once '../../data/db_connection.php';
 require_once 'send_email.php';
 require_once '../../vendor/autoload.php';
-require_once '../../upload_image.php';
 require_once '../../email_template.php';
+
+// Eliminar cualquier referencia a upload_image.php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Nombres = $_POST['Nombres'] ?? '';
@@ -21,9 +22,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $foto_url = null;
-    if (isset($_FILES['photo']) && $_FILES['photo']['error'] == UPLOAD_ERR_OK) {
-        $foto_url = upload_image($_FILES['photo']);
+    // Verificar que se subió al menos 1 foto
+    if (empty($_FILES['photos']['name'][0])) {
+        die("Debes subir al menos 1 foto");
+    }
+
+    // Limitar a 3 fotos máximo
+    if (count($_FILES['photos']['name']) > 3) {
+        die("Máximo 3 fotos permitidas");
+    }
+
+    // Procesar las fotos (guardarlas en el servidor)
+    $foto_urls = [];
+    //revisar este codigo porque ya no deberia ser necesario
+    $upload_dir = '../../uploads/';
+    foreach ($_FILES['photos']['tmp_name'] as $key => $tmp_name) {
+        $file_name = basename($_FILES['photos']['name'][$key]);
+        $target_file = $upload_dir . uniqid() . '_' . $file_name;
+        if (move_uploaded_file($tmp_name, $target_file)) {
+            $foto_urls[] = $target_file;
+        }
     }
 
     $conn = Database::getInstance()->getConnection();
@@ -36,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmt->close();
 
-    $stmt = $conn->prepare("INSERT INTO reportes (usuario_id, categoria_id, descripcion, Direccion, foto_url) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("iisss", $idUsuario, $categoria_id, $descripcion, $Direccion, $foto_url);
+    $stmt = $conn->prepare("INSERT INTO reportes (usuario_id, categoria_id, descripcion, Direccion) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("iiss", $idUsuario, $categoria_id, $descripcion, $Direccion);
     if (!$stmt->execute()) {
         echo "Error al insertar el reporte: " . $stmt->error;
         exit;
@@ -45,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     $subject = "Confirmación de reporte de basura";
-    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_url);
-    if (!send_email($email, $subject, $message, [$foto_url])) {
+    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_urls[0] ?? null);
+    if (!send_email($email, $subject, $message, $foto_urls)) {
         echo "Error al enviar el correo de confirmación.";
     }
 

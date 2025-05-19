@@ -2,9 +2,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #87ceeb 50%, #f5f5dc 100%);
+  background: linear-gradient(to bottom, #d4edda 50%, #e8f5e9 100%);
   background-attachment: fixed;
-  font-family: "Roboto Condensed", serif; /* Aplica la fuente a todo el cuerpo */
+  font-family: "Roboto Condensed", serif;
 }
 
 .container {
@@ -13,17 +13,19 @@ body {
   background: #ffffff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(28, 148, 0, 0.1);
 }
 
 .progress-container .progress {
   height: 8px;
   border-radius: 50px;
+  background-color: #e8f5e9;
 }
 
 .progress-bar {
   border-radius: 50px;
   transition: width 0.4s ease;
+  background-color: #1c9400;
 }
 
 .form-step {
@@ -38,53 +40,99 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
 }
 
 .bache-section .bache-image {
   width: 40%;
   height: auto;
   border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(28, 148, 0, 0.2);
 }
 
 .bache-section img {
   width: 100%;
   height: 450px;
   border-radius: 10px;
+  border: 2px solid #1c9400;
 }
 
 .report-info {
-  width: 235px; /* Ajusta el ancho del contenedor */
-  height: 450px; /* Ajusta la altura del contenedor */
-  background-color: #87ceeb; /* Ajusta el color de fondo */
+  width: 235px;
+  height: 450px;
+  background-color: #d4edda;
   display: flex;
-  justify-content: flex-start; /* Alinea el contenido a la izquierda */
-  align-items: center; /* Centra el contenido verticalmente */
-  border-radius: 10px; /* Añade bordes redondeados */
-  padding-left: 20px; /* Añade un poco de padding a la izquierda */
-  border: 2px solid #A4A4A4; /* Añade un borde */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 20px;
+  border: 2px solid #1c9400;
+  box-shadow: 0 4px 12px rgba(28, 148, 0, 0.15);
 }
 
 .report-info span {
-  color: white;
+  color: #155724;
   font-weight: bold;
   font-size: 1.5em;
-  text-align: left; /* Alinea el texto a la izquierda */
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .roboto-condensed-bold {
   font-family: "Roboto Condensed", serif;
   font-optical-sizing: auto;
-  font-weight: 700; /* Puedes ajustar el peso según tus necesidades */
+  font-weight: 700;
   font-style: normal;
+  color: #1c3a2b;
 }
 
-/* Estilo para las opciones del formulario */
 select option {
-  color: #A4A4A4;
+  color: #1c3a2b;
+  background-color: #e8f5e9;
 }
 
-/* Estilo para las respuestas del formulario */
 input, select, textarea {
-  color: #A4A4A4;
+  color: #1c3a2b;
+  border: 1px solid #1c9400;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #155724;
+  box-shadow: 0 0 8px rgba(28, 148, 0, 0.3);
+}
+
+.custom-file-input:hover::before {
+  border-color: #1c9400;
+  background-color: #e8f5e9;
+}
+
+.custom-file-input:active::before {
+  background-color: #d4edda;
+}
+
+.btn-primary {
+  background-color: #1c9400;
+  border-color: #155724;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #155724;
+  border-color: #0d2b1a;
+  transform: translateY(-2px);
+}
+
+/* Efecto de borde dinámico */
+.bache-section::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid #1c9400;
+  border-radius: 15px;
+  z-index: -1;
+  opacity: 0.3;
 }

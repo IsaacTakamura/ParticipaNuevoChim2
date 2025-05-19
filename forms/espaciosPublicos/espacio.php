@@ -32,8 +32,6 @@
       </div>
     </div>
 
-
-
     <!-- Formulario -->
     <form id="multiStepForm" class="card shadow-sm p-4" action="process_report_espacio.php" method="POST"
       enctype="multipart/form-data">
@@ -122,9 +120,18 @@
               <textarea id="descripcion" name="descripcion" class="form-control"
                 placeholder="Describe el problema en detalle y su ubicación" rows="4" required></textarea>
             </div>
+            <!-- Reemplazar los inputs individuales de fotos por este bloque -->
             <div class="mb-3">
-              <label for="photo" class="form-label"><i class="fa-solid fa-camera"></i> Subir Foto del Problema</label>
-              <input type="file" id="photo" name="photo" class="form-control" accept="image/*">
+              <label for="photos" class="form-label">
+                <i class="fa-solid fa-camera"></i> Subir fotos del problema
+                <small>(Mínimo 1, máximo 3)</small>
+              </label>
+              <input type="file" id="photos" name="photos[]" class="form-control" accept="image/*" multiple
+                data-max-files="3" required>
+              <div class="invalid-feedback">Debes subir al menos 1 foto</div>
+              <small class="form-text text-muted">
+                Puedes seleccionar hasta 3 fotos a la vez (JPEG, PNG, GIF)
+              </small>
             </div>
           </div>
         </div>
@@ -165,7 +172,7 @@
   <script src="../../js/form-espacio.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    
+
   </script>
 </body>
 

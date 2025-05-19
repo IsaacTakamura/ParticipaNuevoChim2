@@ -2,9 +2,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, rgb(108, 255, 129) 0%, rgb(85, 200, 87) 35%, rgb(69, 162, 71) 60%, rgb(53, 124, 55) 100%);
+  background: linear-gradient(to bottom, #d4edda 0%, #a3d6a5 35%, #81c784 60%, #4caf50 100%);
   background-attachment: fixed;
-  font-family: "Roboto Condensed", serif; /* Aplica la fuente a todo el cuerpo */
+  font-family: "Roboto Condensed", serif;
 }
 
 .container {
@@ -13,17 +13,19 @@ body {
   background: #ffffff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(28, 148, 0, 0.15);
 }
 
 .progress-container .progress {
   height: 8px;
   border-radius: 50px;
+  background-color: #e8f5e9;
 }
 
 .progress-bar {
   border-radius: 50px;
   transition: width 0.4s ease;
+  background-color: #1c9400;
 }
 
 .form-step {
@@ -38,53 +40,131 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
 }
 
 .bache-section .public-space-image {
   width: 40%;
   height: auto;
   border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(28, 148, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.bache-section .public-space-image:hover {
+  transform: translateY(-5px);
 }
 
 .public-space-image img {
   width: 100%;
   height: 450px;
   border-radius: 10px;
+  border: 2px solid #1c9400;
+  filter: drop-shadow(0 4px 6px rgba(28, 148, 0, 0.1));
 }
 
 .report-info {
   width: 235px;
   height: 450px;
-  background-color: #4caf50; /* Ajusta el color de fondo */
+  background-color: #d4edda;
   display: flex;
-  justify-content: flex-start; /* Alinea el contenido a la izquierda */
-  align-items: center; /* Centra el contenido verticalmente */
-  border-radius: 10px; /* Añade bordes redondeados */
-  padding-left: 20px; /* Añade un poco de padding a la izquierda */
-  border: 2px solid #A4A4A4; /* Añade un borde */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 20px;
+  border: 2px solid #1c9400;
+  box-shadow: 0 4px 12px rgba(28, 148, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.report-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 50%, rgba(28, 148, 0, 0.05) 100%);
 }
 
 .report-info span {
-  color: white;
+  color: #155724;
   font-weight: bold;
   font-size: 1.5em;
-  text-align: left; /* Alinea el texto a la izquierda */
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 .roboto-condensed-bold {
   font-family: "Roboto Condensed", serif;
   font-optical-sizing: auto;
-  font-weight: 700; /* Puedes ajustar el peso según tus necesidades */
+  font-weight: 700;
   font-style: normal;
+  color: #1c3a2b;
 }
 
-/* Estilo para las opciones del formulario */
 select option {
-  color: #A4A4A4;
+  color: #1c3a2b;
+  background-color: #e8f5e9;
 }
 
-/* Estilo para las respuestas del formulario */
 input, select, textarea {
-  color: #A4A4A4;
+  color: #1c3a2b;
+  border: 1px solid #1c9400;
+  transition: all 0.3s ease;
+  background-color: #f8fff9;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #155724;
+  box-shadow: 0 0 8px rgba(28, 148, 0, 0.3);
+  background-color: #ffffff;
+}
+
+.custom-file-input:hover::before {
+  border-color: #1c9400;
+  background-color: #e8f5e9;
+}
+
+.custom-file-input:active::before {
+  background-color: #d4edda;
+}
+
+.btn-primary {
+  background-color: #1c9400;
+  border-color: #155724;
+  transition: all 0.3s ease;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  background-color: #155724;
+  border-color: #0d2b1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(28, 148, 0, 0.2);
+}
+
+/* Efecto de hojas decorativas */
+.leaf-pattern {
+  position: absolute;
+  width: 150px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.leaf-pattern.top-right {
+  top: -30px;
+  right: -30px;
+  transform: rotate(25deg);
+}
+
+.leaf-pattern.bottom-left {
+  bottom: -30px;
+  left: -30px;
+  transform: rotate(-110deg);
 }

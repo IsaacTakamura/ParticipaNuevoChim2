@@ -51,6 +51,29 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('summary-lugarAfectado').textContent = document.getElementById('lugarAfectado').value;
     }
 
+    // Validación de imágenes
+    const photoInput = document.querySelector('input[name="photos[]"]');
+    if (photoInput) {
+        photoInput.addEventListener('change', function(e) {
+            const files = e.target.files;
+            const maxFiles = parseInt(this.getAttribute('data-max-files')) || 5; // valor por defecto
+            if (files.length > maxFiles) {
+                alert(`Solo puedes subir máximo ${maxFiles} fotos`);
+                this.value = '';
+                return;
+            }
+            // Validar tipos de archivo
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            for (let file of files) {
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Solo se permiten imágenes (JPEG, PNG, GIF)');
+                    this.value = '';
+                    return;
+                }
+            }
+        });
+    }
+
     // Inicializa el primer paso y la barra de progreso
     updateFormSteps();
     updateProgressBar();

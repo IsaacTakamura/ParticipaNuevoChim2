@@ -1,6 +1,8 @@
 <?php
-function generate_email_content($Nombres, $descripcion, $Direccion, $foto_url)
+function generate_email_content($Nombres, $descripcion, $Direccion)
 {
+    $num_photos = isset($_FILES['photos']['name']) ? count($_FILES['photos']['name']) : 0;
+
     $message = "
     <html>
     <head>
@@ -10,13 +12,8 @@ function generate_email_content($Nombres, $descripcion, $Direccion, $foto_url)
         <h1>Hola $Nombres,</h1>
         <p>Gracias por enviar tu reporte. Hemos recibido la siguiente información:</p>
         <p><strong>Descripción:</strong> $descripcion</p>
-        <p><strong>Dirección:</strong> $Direccion</p>";
-
-    if ($foto_url) {
-        $message .= "<p><strong>Imagen:</strong></p><img src='$foto_url' alt='Imagen del reporte' style='max-width: 600px;'>";
-    }
-
-    $message .= "
+        <p><strong>Dirección:</strong> $Direccion</p>
+        <p><strong>Fotos adjuntas:</strong> $num_photos imágenes</p>
         <p>Saludos,<br>Equipo de ParticipaNuevoChimbotano</p>
     </body>
     </html>";
