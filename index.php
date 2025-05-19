@@ -113,23 +113,6 @@
         </section>
 
         <!-- Sección de Reportes -->
-
-        <br>
-        <!-- Sección de Noticia Principal -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-10">
-            <div class="relative">
-                <img src="images/gentita.jpg" alt="Imagen de la Noticia" class="w-full h-auto object-cover">
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                    <h2 class="text-white text-xl md:text-2xl font-bold">
-                        #YoApoyo: Alcalde invita a ciudadanía a trabajar por Nuevo Chimbote
-                    </h2>
-                    <p class="text-white text-sm mt-2">
-                        El alcalde Walter Soto invita a la ciudadanía a trabajar con el Distrito, con acciones
-                        cotidianas.
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
 
