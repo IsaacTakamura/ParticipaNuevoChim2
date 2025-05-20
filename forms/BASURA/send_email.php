@@ -24,6 +24,7 @@ if (!function_exists('send_email')) {
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
             $mail->setFrom('basura@muninuevochimbote.gob.pe', 'Reporte de Basura');
+            $mail->addAddress('basura@muninuevochimbote.gob.pe'); // Correo de la municipalidad
             $mail->addAddress($to);
             $mail->Subject = $subject;
             $mail->isHTML(true);

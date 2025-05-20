@@ -24,6 +24,7 @@ if (!function_exists('send_email')) {
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
             $mail->setFrom('espaciospublicos@muninuevochimbote.gob.pe', 'Daño en parques y jardines públicos');
+            $mail->addAddress('espaciospublicos@muninuevochimbote.gob.pe'); // Correo de la municipalidad
             $mail->addAddress($to);
             $mail->Subject = $subject;
 

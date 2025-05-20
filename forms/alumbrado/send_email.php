@@ -20,8 +20,9 @@ if (!function_exists('send_email')) {
 
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
-            $mail->setFrom('alumbradopublico@muninuevochimbote.gob.pe', 'Problemas de alumbrado público');
-            $mail->addAddress($to);
+            $mail->setFrom('alumbradopublico@muninuevochimbote.gob.pe', 'Alumbrado Público');
+            $mail->addAddress('alumbradopublico@muninuevochimbote.gob.pe'); // Correo de la municipalidad
+            $mail->addAddress($to); // Correo del usuario (confirmación)
             $mail->Subject = $subject;
 
             // Agregar texto genérico sobre las imágenes adjuntas

@@ -24,7 +24,8 @@ if (!function_exists('send_email')) {
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
             $mail->setFrom('huecos@muninuevochimbote.gob.pe', 'Daño en la calle publica');
-            $mail->addAddress($to);
+            $mail->addAddress('huecos@muninuevochimbote.gob.pe'); // Correo de la municipalidad
+            $mail->addAddress($to); // Correo del usuario (confirmación)
             $mail->Subject = $subject;
 
             // Adjuntar imágenes desde rutas temporales
