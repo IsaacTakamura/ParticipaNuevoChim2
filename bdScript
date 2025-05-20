@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2025 a las 02:00:04
+-- Tiempo de generación: 20-05-2025 a las 18:48:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -91,78 +91,80 @@ CREATE TABLE `reportes` (
   `descripcion` varchar(255) NOT NULL,
   `fecha_reporte` timestamp NOT NULL DEFAULT current_timestamp(),
   `Direccion` varchar(255) DEFAULT NULL,
-  `estado` varchar(20) DEFAULT 'Pendiente',
-  `foto_url` varchar(1024) DEFAULT NULL
+  `estado` varchar(20) DEFAULT 'Pendiente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reportes`
 --
 
-INSERT INTO `reportes` (`idReporte`, `usuario_id`, `categoria_id`, `descripcion`, `fecha_reporte`, `Direccion`, `estado`, `foto_url`) VALUES
-(1, 1, 4, 'Hueco grande en la calle principal.', '2025-01-19 03:32:05', 'Calle 456, Ciudad', 'Pendiente', NULL),
-(2, 2, 4, 'un hueco que tiene mucho tiempo', '2025-01-22 05:04:46', 'bruces G', 'Pendiente', 'ImgSubidas/Escudo_de_Nuevo_Chimbote.png'),
-(3, 3, 4, 'Hueco o Bache que tiene bastante tiempo', '2025-01-22 05:44:06', 'Ovalo de la Familia', 'Pendiente', 'ImgSubidas/logo_white.png'),
-(4, 4, 3, 'En el parque se llevo el evento de emprendedores y quedo basura', '2025-01-24 16:57:02', 'Parque del amor y la amistad', 'Pendiente', 'ImgSubidas/basura2.png'),
-(5, 5, 1, 'En mi barrio no light ', '2025-01-24 17:03:23', 'San Luis', 'Pendiente', 'ImgSubidas/PLaza Mayor Nuevo Chimbote1.jpg'),
-(6, 6, 1, 'prueba', '2025-02-05 17:34:27', 'Complejo Polideportivo de Bruces, Avenida Central, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
-(7, 9, 1, 'preuba2', '2025-02-05 17:47:39', '', 'Pendiente', NULL),
-(8, 4, 1, 'prueba3', '2025-02-05 17:49:02', '', 'Pendiente', NULL),
-(9, 11, 1, 'tengo problemas con mi luz', '2025-02-07 13:45:48', '', 'Pendiente', NULL),
-(10, 11, 1, 'prueba 3', '2025-02-07 14:03:12', '', 'Pendiente', NULL),
-(15, 11751245, 1, 'prueba5', '2025-02-07 17:19:42', 'Polideportivo Casuarinas, Pasaje Los Cipreces, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', NULL),
-(16, 11751245, 1, 'prueba5', '2025-02-07 17:29:41', 'Polideportivo Casuarinas, Pasaje Los Cipreces, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', NULL),
-(17, 11751245, 1, 'prueba 4', '2025-02-07 17:30:39', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', NULL),
-(18, 70718596, 1, 'Una farola que se encuentra del lado de las farmacias, cerca de un acuario se encuentra dañada, esta que parpadea desde hace rato', '2025-02-07 17:50:22', 'Óvalo La Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
-(19, 70718596, 1, 'Una farola que se encuentra del lado de las farmacias, cerca de un acuario se encuentra dañada, esta que parpadea desde hace rato', '2025-02-07 18:02:20', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
-(20, 70718596, 1, 'prueba 6', '2025-02-10 01:25:08', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', NULL),
-(21, 99999999, 1, 'prueba 7', '2025-02-10 15:44:33', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(22, 99999999, 4, 'prueba baches 1', '2025-02-10 15:46:09', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/bache.jpg'),
-(23, 99999999, 3, 'falta mantenimiento al parque', '2025-02-10 16:23:24', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente', '../../ImgSubidas/parque.jpg'),
-(24, 99999999, 2, 'mantenimiento', '2025-02-10 17:04:04', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', '../../ImgSubidas/parque.jpg'),
-(25, 99999999, 2, 'mantenimiento', '2025-02-10 17:04:56', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', '../../ImgSubidas/parque.jpg'),
-(26, 99999999, 1, 'lleva 2 meses la farola que esta parpadiando se encuentra en la esquina xxx por una tienda que se llama xxxx', '2025-02-10 17:18:39', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(27, 99999999, 1, 'farola parpadeando', '2025-02-10 17:20:09', 'Cas Tambo, Tambo Del Ene, Río Tambo, Satipo, Junín, Perú', 'Pendiente', NULL),
-(28, 99999999, 4, 'tamaño grande de bache', '2025-02-10 17:20:57', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', '../../ImgSubidas/bache.jpg'),
-(29, 99999999, 1, 'farola parpadeando, ya tiene mucho tiempo, se encuentra en la esquina de xxx ', '2025-02-10 17:26:07', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', '../../ImgSubidas/farola.jpg'),
-(30, 99999999, 1, 'Farola parpadeando en xxx a la esquina de xxx prueba 10-02-2025 4:17', '2025-02-10 21:22:21', 'Óvalo La Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente', '../../ImgSubidas/farola.jpg'),
-(31, 70718596, 2, 'Daños en el alumbrado de los focos que iluminan la ciclovía, y las puertas de los baños están rotos ', '2025-02-10 23:21:43', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente', '../../ImgSubidas/parque.jpg'),
-(32, 99999999, 1, '999', '2025-02-19 13:14:37', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/chatbot.jpg'),
-(33, 99999999, 1, '9999', '2025-02-19 13:20:14', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/chatbot.jpg'),
-(34, 99999999, 4, '999', '2025-02-19 13:51:54', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candado.jpg'),
-(35, 12345678, 1, 'Farola dañada en la esquina de xx de la avenida xxx', '2025-02-21 14:55:43', 'Cas Tambo, Tambo Del Ene, Río Tambo, Satipo, Junín, Perú', 'Pendiente', '../../ImgSubidas/chatbot.jpg'),
-(36, 99999999, 1, 'prueba de caracteres en el correo áéíóú, ñ ,.-{+´¿\'1 !\"#$%&/()= ABCDEFGHIJKLMNÑOPQRSTUVWXYZ, abcdefghijklmnñiopqrstuvwxyz', '2025-02-21 15:43:46', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candados.jpg'),
-(37, 99999999, 1, 'prueba de caracteres en el correo áéíóú, ñ ,.-{+´¿\'1 !\"#$%&/()= ABCDEFGHIJKLMNÑOPQRSTUVWXYZ, abcdefghijklmnñiopqrstuvwxyz', '2025-02-21 16:40:03', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candados.jpg'),
-(38, 99999999, 1, 'prueba triple imagenes', '2025-02-21 17:10:54', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candados.jpg,../../ImgSubidas/chatbot.jpg,../../ImgSubidas/candados.jpg'),
-(39, 99999999, 1, 'prueba triple imagen 2', '2025-02-21 17:17:36', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candados.jpg,../../ImgSubidas/chatbot.jpg,../../ImgSubidas/candado.jpg'),
-(40, 99999999, 1, 'xxx', '2025-02-21 17:37:13', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candado.jpg'),
-(41, 99999999, 1, '3 img', '2025-02-22 16:28:07', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/WalterSotoPrueba.jpg'),
-(42, 99999999, 4, 'xx', '2025-02-25 23:11:14', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candado.jpg'),
-(43, 99999999, 4, 'xxx', '2025-02-25 23:18:09', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candado.jpg'),
-(44, 99999999, 1, 'xxxsingle', '2025-02-25 23:23:24', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candado.jpg,../../ImgSubidas/chatbot.jpg,../../ImgSubidas/candados.jpg'),
-(45, 99999999, 1, 'sin factore solo singleton', '2025-02-26 13:34:17', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candado.jpg'),
-(46, 99999999, 4, 'evitar sql inyected', '2025-02-26 14:50:27', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(47, 99999999, 4, 'evitar sql inyected', '2025-02-26 14:58:41', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', 'ImgSubidas/chatbot.jpg'),
-(48, 99999999, 4, 'null sql inyected de chill', '2025-02-26 15:42:42', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(49, 99999999, 1, 'no sql inyected', '2025-02-26 16:03:58', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(50, 99999999, 4, 'xx', '2025-02-26 16:05:02', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', 'ImgSubidas/candados.jpg'),
-(51, 99999999, 1, 'xxx', '2025-02-26 16:08:01', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(52, 99999999, 1, 'probando estructura del correo', '2025-02-26 16:47:30', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(53, 99999999, 4, 'probar correo estructura', '2025-02-26 16:48:21', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente', NULL),
-(54, 99999999, 1, 'correo prueba 3', '2025-02-26 16:58:22', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(55, 99999999, 1, 'XX', '2025-02-26 17:18:33', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente', NULL),
-(56, 99999999, 2, 'XCXXX', '2025-02-26 17:21:19', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente', 'ImgSubidas/parque.jpg'),
-(57, 99999999, 4, 'POR FAVOR FUNCIONA', '2025-02-26 17:41:18', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', 'ImgSubidas/parque.jpg'),
-(58, 99999999, 1, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxmatame', '2025-02-26 17:48:41', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(59, 99999999, 1, 'sss', '2025-02-26 21:51:21', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/candado.jpg'),
-(60, 99999999, 1, 'aaa', '2025-02-26 22:02:03', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/imagen_2025-02-26_170158101.png,../../ImgSubidas/chatbot.jpg,../../ImgSubidas/candado.jpg'),
-(61, 99999999, 1, 'xxx', '2025-02-27 20:31:30', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', NULL),
-(62, 99999999, 4, 'xx', '2025-02-27 20:38:08', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente', NULL),
-(63, 99999999, 4, 'refactor de insercion de photos', '2025-02-27 21:36:05', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/imagen_2025-02-27_163405603.png'),
-(64, 99999999, 4, 'Agrega el conjunto de caracteres UTF-8', '2025-02-27 21:39:31', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/faro-lighthouse-at-entrance-to-port-of-almeria-royalty-free-image-1654183830.jpg'),
-(65, 99999999, 4, 'Sanitizar Entradas en Formularios En todos los archivos', '2025-02-27 21:49:35', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/faro-lighthouse-at-entrance-to-port-of-almeria-royalty-free-image-1654183830.jpg'),
-(66, 99999999, 4, 'Validar Tipos de Datos En campos numéricos', '2025-02-27 22:05:31', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/faro-lighthouse-at-entrance-to-port-of-almeria-royalty-free-image-1654183830.jpg'),
-(67, 99999999, 4, 'Proteger upload', '2025-02-27 22:16:58', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente', '../../ImgSubidas/faro-lighthouse-at-entrance-to-port-of-almeria-royalty-free-image-1654183830.jpg');
+INSERT INTO `reportes` (`idReporte`, `usuario_id`, `categoria_id`, `descripcion`, `fecha_reporte`, `Direccion`, `estado`) VALUES
+(1, 1, 4, 'Hueco grande en la calle principal.', '2025-01-19 03:32:05', 'Calle 456, Ciudad', 'Pendiente'),
+(2, 2, 4, 'un hueco que tiene mucho tiempo', '2025-01-22 05:04:46', 'bruces G', 'Pendiente'),
+(3, 3, 4, 'Hueco o Bache que tiene bastante tiempo', '2025-01-22 05:44:06', 'Ovalo de la Familia', 'Pendiente'),
+(4, 4, 3, 'En el parque se llevo el evento de emprendedores y quedo basura', '2025-01-24 16:57:02', 'Parque del amor y la amistad', 'Pendiente'),
+(5, 5, 1, 'En mi barrio no light ', '2025-01-24 17:03:23', 'San Luis', 'Pendiente'),
+(6, 6, 1, 'prueba', '2025-02-05 17:34:27', 'Complejo Polideportivo de Bruces, Avenida Central, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente'),
+(7, 9, 1, 'preuba2', '2025-02-05 17:47:39', '', 'Pendiente'),
+(8, 4, 1, 'prueba3', '2025-02-05 17:49:02', '', 'Pendiente'),
+(9, 11, 1, 'tengo problemas con mi luz', '2025-02-07 13:45:48', '', 'Pendiente'),
+(10, 11, 1, 'prueba 3', '2025-02-07 14:03:12', '', 'Pendiente'),
+(15, 11751245, 1, 'prueba5', '2025-02-07 17:19:42', 'Polideportivo Casuarinas, Pasaje Los Cipreces, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(16, 11751245, 1, 'prueba5', '2025-02-07 17:29:41', 'Polideportivo Casuarinas, Pasaje Los Cipreces, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(17, 11751245, 1, 'prueba 4', '2025-02-07 17:30:39', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(18, 70718596, 1, 'Una farola que se encuentra del lado de las farmacias, cerca de un acuario se encuentra dañada, esta que parpadea desde hace rato', '2025-02-07 17:50:22', 'Óvalo La Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente'),
+(19, 70718596, 1, 'Una farola que se encuentra del lado de las farmacias, cerca de un acuario se encuentra dañada, esta que parpadea desde hace rato', '2025-02-07 18:02:20', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente'),
+(20, 70718596, 1, 'prueba 6', '2025-02-10 01:25:08', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente'),
+(21, 99999999, 1, 'prueba 7', '2025-02-10 15:44:33', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(22, 99999999, 4, 'prueba baches 1', '2025-02-10 15:46:09', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(23, 99999999, 3, 'falta mantenimiento al parque', '2025-02-10 16:23:24', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente'),
+(24, 99999999, 2, 'mantenimiento', '2025-02-10 17:04:04', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(25, 99999999, 2, 'mantenimiento', '2025-02-10 17:04:56', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(26, 99999999, 1, 'lleva 2 meses la farola que esta parpadiando se encuentra en la esquina xxx por una tienda que se llama xxxx', '2025-02-10 17:18:39', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(27, 99999999, 1, 'farola parpadeando', '2025-02-10 17:20:09', 'Cas Tambo, Tambo Del Ene, Río Tambo, Satipo, Junín, Perú', 'Pendiente'),
+(28, 99999999, 4, 'tamaño grande de bache', '2025-02-10 17:20:57', 'Avenida Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente'),
+(29, 99999999, 1, 'farola parpadeando, ya tiene mucho tiempo, se encuentra en la esquina de xxx ', '2025-02-10 17:26:07', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(30, 99999999, 1, 'Farola parpadeando en xxx a la esquina de xxx prueba 10-02-2025 4:17', '2025-02-10 21:22:21', 'Óvalo La Sagrada Familia, Nuevo Chimbote, Santa, Áncash, 02711, Perú', 'Pendiente'),
+(31, 70718596, 2, 'Daños en el alumbrado de los focos que iluminan la ciclovía, y las puertas de los baños están rotos ', '2025-02-10 23:21:43', 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(32, 99999999, 1, '999', '2025-02-19 13:14:37', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(33, 99999999, 1, '9999', '2025-02-19 13:20:14', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(34, 99999999, 4, '999', '2025-02-19 13:51:54', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(35, 12345678, 1, 'Farola dañada en la esquina de xx de la avenida xxx', '2025-02-21 14:55:43', 'Cas Tambo, Tambo Del Ene, Río Tambo, Satipo, Junín, Perú', 'Pendiente'),
+(36, 99999999, 1, 'prueba de caracteres en el correo áéíóú, ñ ,.-{+´¿\'1 !\"#$%&/()= ABCDEFGHIJKLMNÑOPQRSTUVWXYZ, abcdefghijklmnñiopqrstuvwxyz', '2025-02-21 15:43:46', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(37, 99999999, 1, 'prueba de caracteres en el correo áéíóú, ñ ,.-{+´¿\'1 !\"#$%&/()= ABCDEFGHIJKLMNÑOPQRSTUVWXYZ, abcdefghijklmnñiopqrstuvwxyz', '2025-02-21 16:40:03', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(38, 99999999, 1, 'prueba triple imagenes', '2025-02-21 17:10:54', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(39, 99999999, 1, 'prueba triple imagen 2', '2025-02-21 17:17:36', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(40, 99999999, 1, 'xxx', '2025-02-21 17:37:13', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(41, 99999999, 1, '3 img', '2025-02-22 16:28:07', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(42, 99999999, 4, 'xx', '2025-02-25 23:11:14', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(43, 99999999, 4, 'xxx', '2025-02-25 23:18:09', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(44, 99999999, 1, 'xxxsingle', '2025-02-25 23:23:24', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(45, 99999999, 1, 'sin factore solo singleton', '2025-02-26 13:34:17', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(46, 99999999, 4, 'evitar sql inyected', '2025-02-26 14:50:27', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(47, 99999999, 4, 'evitar sql inyected', '2025-02-26 14:58:41', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(48, 99999999, 4, 'null sql inyected de chill', '2025-02-26 15:42:42', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(49, 99999999, 1, 'no sql inyected', '2025-02-26 16:03:58', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(50, 99999999, 4, 'xx', '2025-02-26 16:05:02', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(51, 99999999, 1, 'xxx', '2025-02-26 16:08:01', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(52, 99999999, 1, 'probando estructura del correo', '2025-02-26 16:47:30', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(53, 99999999, 4, 'probar correo estructura', '2025-02-26 16:48:21', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente'),
+(54, 99999999, 1, 'correo prueba 3', '2025-02-26 16:58:22', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(55, 99999999, 1, 'XX', '2025-02-26 17:18:33', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente'),
+(56, 99999999, 2, 'XCXXX', '2025-02-26 17:21:19', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente'),
+(57, 99999999, 4, 'POR FAVOR FUNCIONA', '2025-02-26 17:41:18', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(58, 99999999, 1, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxmatame', '2025-02-26 17:48:41', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(59, 99999999, 1, 'sss', '2025-02-26 21:51:21', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(60, 99999999, 1, 'aaa', '2025-02-26 22:02:03', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(61, 99999999, 1, 'xxx', '2025-02-27 20:31:30', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(62, 99999999, 4, 'xx', '2025-02-27 20:38:08', 'La Casuarina, Los Sauces, Surquillo, Lima, Lima Metropolitana, Lima, 15038, Perú', 'Pendiente'),
+(63, 99999999, 4, 'refactor de insercion de photos', '2025-02-27 21:36:05', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(64, 99999999, 4, 'Agrega el conjunto de caracteres UTF-8', '2025-02-27 21:39:31', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(65, 99999999, 4, 'Sanitizar Entradas en Formularios En todos los archivos', '2025-02-27 21:49:35', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(66, 99999999, 4, 'Validar Tipos de Datos En campos numéricos', '2025-02-27 22:05:31', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(67, 99999999, 4, 'Proteger upload', '2025-02-27 22:16:58', 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', 'Pendiente'),
+(68, 70751145, 1, 'problemas con la farola', '2025-05-19 15:50:13', 'Complejo Polideportivo de Bruces, Calle 20, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(69, 70751145, 1, 'problemas con la farola', '2025-05-19 16:15:49', 'Complejo Polideportivo de Bruces, Calle 20, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente'),
+(70, 70751145, 1, 'problemas con la farola', '2025-05-19 16:19:24', 'Complejo Polideportivo de Bruces, Calle 20, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -197,6 +199,7 @@ INSERT INTO `usuario` (`idUsuario`, `TipoIdentificacion`, `Nombres`, `Apellidos`
 (11751245, 1, 'Nicolas Isma', 'Alayo Arias', 955029555, 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'NicolasIsma@gmail.com', '2025-02-07 17:19:42'),
 (12345678, 1, 'Juan', 'Perez', 123456789, 'Cas Tambo, Tambo Del Ene, Río Tambo, Satipo, Junín, Perú', 'Juan@gmail.com', '2025-02-21 14:55:43'),
 (70718596, 1, 'Victor Andree', 'Sevillano Vega', 946330198, 'Polideportivo Casuarinas, Jirón Los Cactus, Buenos Aires, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'tengoChamba21@gmail.com', '2025-02-07 17:50:22'),
+(70751145, 1, 'Isaac Ivanov', 'Takamura Rojas', 942029405, 'Complejo Polideportivo de Bruces, Calle 20, Nuevo Chimbote, Santa, Áncash, 02710, Perú', 'isaactakamura1503@hotmail.com', '2025-05-19 15:50:13'),
 (99999999, 1, '999', '999', 999999999, 'Fami Salud, Avenida Jorge Basadre Oeste, Santa Elizabeth (I etapa), San Juan de Lurigancho, Lima, Lima Metropolitana, Lima, 15419, Perú', '999@gmail.com', '2025-02-10 15:44:33');
 
 --
@@ -252,7 +255,7 @@ ALTER TABLE `detalles_reporte`
 -- AUTO_INCREMENT de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Restricciones para tablas volcadas
