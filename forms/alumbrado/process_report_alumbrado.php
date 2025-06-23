@@ -4,8 +4,6 @@ require_once 'send_email.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once '../../email_template.php';
 
-// Eliminar cualquier referencia a upload_image.php
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Nombres = $_POST['Nombres'] ?? '';
     $apellidos = $_POST['apellidos'] ?? '';
@@ -32,12 +30,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Máximo 3 fotos permitidas");
     }
 
-    // Eliminar todo el bloque de procesamiento de imágenes
-    // Reemplazar con:
-    $foto_tmp_paths = [];
-    foreach ($_FILES['photos']['tmp_name'] as $idx => $tmp_name) {
-        if ($_FILES['photos']['error'][$idx] === UPLOAD_ERR_OK) {
-            $foto_tmp_paths[] = $tmp_name; // Guardar rutas temporales
+    // Crear carpeta uploads si no existe
+    $upload_dir = __DIR__ . '/uploads/';
+    if (!file_exists($upload_dir)) {
+        mkdir($upload_dir, 0755, true);
+    }
+
+    $foto_paths = [];
+    foreach ($_FILES['photos']['tmp_name'] as $key => $tmp_name) {
+        if ($_FILES['photos']['error'][$key] === UPLOAD_ERR_OK) {
+            $extension = strtolower(pathinfo($_FILES['photos']['name'][$key], PATHINFO_EXTENSION));
+            $allowed_extensions = ['jpg', 'jpeg', 'png'];
+
+            if (!in_array($extension, $allowed_extensions)) continue;
+
+            $unique_name = uniqid('img_', true) . '.' . $extension;
+            $destination = $upload_dir . $unique_name;
+
+            // Comprimir si supera los 2MB
+            if ($_FILES['photos']['size'][$key] > 2 * 1024 * 1024) {
+                $image = null;
+                if ($extension === 'jpg' || $extension === 'jpeg') {
+                    $image = imagecreatefromjpeg($tmp_name);
+                } elseif ($extension === 'png') {
+                    $image = imagecreatefrompng($tmp_name);
+                }
+
+                if ($image) {
+                    $quality = 85;
+                    do {
+                        imagejpeg($image, $destination, $quality);
+                        $quality -= 5;
+                    } while (filesize($destination) > 2 * 1024 * 1024 && $quality > 10);
+                    imagedestroy($image);
+                }
+            } else {
+                move_uploaded_file($tmp_name, $destination);
+            }
+
+            $foto_paths[] = $destination;
         }
     }
 
@@ -60,8 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     $subject = "Confirmación de reporte de alumbrado público";
-    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_tmp_paths[0] ?? null);
-    if (!send_email($email, $subject, $message, $foto_tmp_paths)) {
+    $message = generate_email_content($Nombres, $descripcion, $Direccion, $foto_paths[0] ?? null);
+    if (!send_email($email, $subject, $message, $foto_paths)) {
         echo "Error al enviar el correo de confirmación.";
     }
 
