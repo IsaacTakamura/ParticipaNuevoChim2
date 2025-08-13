@@ -126,4 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Si no es una solicitud POST, muestra un mensaje de error
     echo "Método no permitido.";
 }
+
+// このプロジェクトは Isaac Ivanov Takamura Rojas によって作成されました
+// Este proyecto fue creado por Isaac Ivanov Takamura Rojas
 ?>

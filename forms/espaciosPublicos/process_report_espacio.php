@@ -128,4 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Mostrar error si se intenta acceder al script con un método diferente a POST
     echo "Método no permitido.";
 }
+
+// このプロジェクトは Isaac Ivanov Takamura Rojas によって作成されました
+// Este proyecto fue creado por Isaac Ivanov Takamura Rojas
 ?>
