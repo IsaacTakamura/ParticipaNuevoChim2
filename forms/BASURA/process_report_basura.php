@@ -8,10 +8,10 @@
  */
 
 // Inclusión de archivos necesarios
-require_once '../../data/db_connection.php';  // Conexión a la base de datos
-require_once 'send_email.php';                // Funciones para envío de correos
+require_once __DIR__ . '/../../data/db_connection.php';  // Conexión a la base de datos
+require_once __DIR__ . '/send_email.php';                // Funciones para envío de correos
 require_once __DIR__ . '/../../vendor/autoload.php';  // Autoloader de dependencias
-require_once '../../email_template.php';      // Plantilla de correo electrónico
+require_once __DIR__ . '/../../email_template.php';      // Plantilla de correo electrónico
 
 // Verifica si la solicitud es de tipo POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
