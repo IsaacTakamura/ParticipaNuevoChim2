@@ -14,7 +14,7 @@
   <!-- Roboto Condensed -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../css/form-baches.css">
+  <link rel="stylesheet" href="/ParticipaNuevoChim2/css/form-baches.css">
 </head>
 
 <body>
@@ -171,12 +171,12 @@
   <script>
     document.getElementById('multiStepForm').addEventListener('submit', function () {
       // Perform form submission logic here
-      window.location.href = '../../index.php';
+      window.location.href = '/ParticipaNuevoChim2/index.php';
     });
   </script>
 
   <!-- Bootstrap JS -->
-  <script src="../../js/form-baches.js"></script>
+  <script src="/ParticipaNuevoChim2/js/form-baches.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
 
@@ -184,4 +184,4 @@
 </body>
 
 </html>
-<script src="../../js/ubicacion.js"></script>
+<script src="/ParticipaNuevoChim2/js/ubicacion.js"></script>

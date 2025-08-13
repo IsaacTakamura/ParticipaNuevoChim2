@@ -1,5 +1,5 @@
 setTimeout(function() {
-    window.location.href = "../index.php";
+    window.location.href = "/ParticipaNuevoChim2/index.php";
 }, 5000);
 
 let index = 0;

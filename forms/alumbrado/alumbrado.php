@@ -14,7 +14,7 @@
   <!-- Roboto Condensed -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../css/form-alumbrado.css" />
+  <link rel="stylesheet" href="/ParticipaNuevoChim2/css/form-alumbrado.css" />
 </head>
 
 <body>
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Formulario -->
-    <form id="multiStepForm" class="card shadow-sm p-4" action="process_report_alumbrado.php" method="POST"
+    <form id="multiStepForm" class="card shadow-sm p-4" action="/forms/alumbrado/process_report_alumbrado.php" method="POST"
       enctype="multipart/form-data">
       <!-- Paso 1: Registro de Usuario -->
       <div class="form-step active">
@@ -172,9 +172,9 @@
   </div>
 
   <!-- Bootstrap JS -->
-  <script src="../../js/form-alumbrado.js"></script>
+  <script src="/ParticipaNuevoChim2/js/form-alumbrado.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-<script src="../../js/ubicacion.js"></script>
+<script src="/ParticipaNuevoChim2/js/ubicacion.js"></script>
